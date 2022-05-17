@@ -12,5 +12,5 @@ router.get(`/`, async function(req, res) {
     res.end(image, 'binary');
 }));
 
-app.listen(8000, () => console.log('app running on 8000 port'))
+app.listen(8000)
 
