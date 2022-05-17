@@ -11,6 +11,6 @@
   "description": "",
   "dependencies": {
     "express": "^4.18.1",
-    "puppeteer": "^14.1.0"
+    "node-server-screenshot": "^0.2.4"
   }
 }
