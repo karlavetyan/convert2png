@@ -12,5 +12,5 @@ app.use(
         res.end(image, 'binary');
     }));
 
-app.listen(8080, () => console.log('app running on 8080 port'))
+app.listen(80, () => console.log('app running on 80 port'))
 
