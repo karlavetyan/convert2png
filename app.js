@@ -4,7 +4,7 @@ const { chromium } = require("playwright");
 
 const app = express();
 
-app.use(express.static('../public'))
+app.use(express.static('./public'))
 
 app.use(
 router.get(`/`, async function(req, res) {
