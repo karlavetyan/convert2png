@@ -1,8 +1,10 @@
+const os = require("os");
 const express = require('express');
 const router = express.Router();
 const { chromium } = require("playwright");
 
 const app = express();
+const hostName = os.hostname();
 
 app.use(
 router.get(`/`, async function(req, res) {
@@ -10,7 +12,7 @@ router.get(`/`, async function(req, res) {
 
     let page = await browser.newPage();
     await page.setViewportSize({ width: 1200, height: 650 });
-    await page.goto(`/quote/view.php?type${req.query?.text}&text=${req.query?.text}&name=${req.query?.name}`);
+    await page.goto(`${hostName}/quote/view.php?type${req.query?.text}&text=${req.query?.text}&name=${req.query?.name}`);
     const buffer = await page.screenshot();
     await browser.close();
 
