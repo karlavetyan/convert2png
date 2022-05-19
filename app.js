@@ -4,7 +4,6 @@ const { chromium } = require("playwright");
 
 http.createServer(async function (req, res) {
     let browser = await chromium.launch({
-        headless: false,
         ignoreHTTPSErrors: true
     });
 
