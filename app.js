@@ -1,11 +1,8 @@
-const express = require('express');
-const router = express.Router();
+const http = require('http');
 const { chromium } = require("playwright");
 
-const app = express();
 
-app.use(
-router.get(`/`, async function(req, res) {
+http.createServer(async function (req, res) {
     let browser = await chromium.launch();
 
     let page = await browser.newPage();
@@ -16,7 +13,4 @@ router.get(`/`, async function(req, res) {
 
     res.writeHead(200, { 'Content-Type': 'image/png' });
     res.end(buffer, 'binary');
-}));
-
-app.listen(26, () => console.log('app running on 26 port'))
-
+}).listen(8000, '127.0.0.1');
