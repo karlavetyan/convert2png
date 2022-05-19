@@ -18,5 +18,5 @@ router.get(`/`, async function(req, res) {
     res.end(buffer, 'binary');
 }));
 
-app.listen(26, () => console.log('app running on 26 port'))
+app.listen(8000, () => console.log('app running on 26 port'))
 
