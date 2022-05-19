@@ -3,11 +3,14 @@ const { chromium } = require("playwright");
 
 
 http.createServer(async function (req, res) {
-    let browser = await chromium.launch();
+    let browser = await chromium.launch({
+        headless: false,
+        ignoreHTTPSErrors: true
+    });
 
     let page = await browser.newPage();
     await page.setViewportSize({ width: 1200, height: 650 });
-    await page.goto(`http://karl.am/quoteBot/view.php?type${req.query?.text}&text=${req.query?.text}&name=${req.query?.name}`);
+    await page.goto(`https://karl.am/quoteBot/view.php?type${req.query?.text}&text=${req.query?.text}&name=${req.query?.name}`);
     const buffer = await page.screenshot();
     await browser.close();
 
